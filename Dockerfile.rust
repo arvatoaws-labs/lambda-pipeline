@@ -1,6 +1,7 @@
 FROM fedora
 
 RUN dnf upgrade -y && dnf install -y awscli jq make gcc gcc-c++ automake zip openssl-devel musl-gcc musl-devel musl-clang musl-libc musl-libc-static && dnf clean all
+RUN ln -s /usr/bin/musl-gcc /usr/bin/x86_64-linux-musl-gcc
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 ENV PATH="$HOME/.cargo/bin:${PATH}"
 RUN PATH="$HOME/.cargo/bin:${PATH}" rustup target add x86_64-unknown-linux-musl
