@@ -1,0 +1,3 @@
+FROM fedora
+
+RUN dnf upgrade -y && dnf install -y awscli rust jq make gcc gcc-c++ automake && dnf clean all
