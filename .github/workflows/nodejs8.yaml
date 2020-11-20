@@ -1,4 +1,4 @@
-name: build
+name: nodejs8
 
 on:
   push:
