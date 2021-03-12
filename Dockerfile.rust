@@ -1,4 +1,8 @@
+FROM ghcr.io/arvatoaws-labs/helm-pipeline/release:latest as helm
+
 FROM fedora
+
+COPY --from=helm /usr/bin/helm3 /usr/bin/helm
 
 RUN dnf upgrade -y && dnf install -y awscli jq make gcc gcc-c++ automake zip openssl-devel musl-gcc musl-devel musl-clang musl-libc musl-libc-static file libcurl-devel && dnf clean all
 RUN ln -s /usr/bin/musl-gcc /usr/bin/x86_64-linux-musl-gcc

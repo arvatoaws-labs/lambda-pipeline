@@ -1,3 +1,7 @@
+FROM ghcr.io/arvatoaws-labs/helm-pipeline/release:latest as helm
+
 FROM fedora
+
+COPY --from=helm /usr/bin/helm3 /usr/bin/helm
 
 RUN dnf upgrade -y && dnf module install -y nodejs:14/default && dnf install -y awscli jq make gcc gcc-c++ automake file && dnf clean all
