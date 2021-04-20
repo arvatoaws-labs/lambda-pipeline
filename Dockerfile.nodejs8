@@ -4,4 +4,4 @@ FROM fedora
 
 COPY --from=helm /usr/bin/helm3 /usr/bin/helm
 
-RUN dnf upgrade -y && dnf module install -y nodejs:8/default && dnf install -y awscli jq make gcc gcc-c++ automake file && dnf clean all
+RUN dnf upgrade -y && dnf module install -y nodejs:8/default && dnf install -y findutils parallel awscli jq make gcc gcc-c++ automake file && dnf clean all
