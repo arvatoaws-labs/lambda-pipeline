@@ -1,6 +1,6 @@
 FROM ghcr.io/arvatoaws-labs/helm-pipeline/release:latest as helm
 
-FROM fedora
+FROM fedora:34
 
 COPY --from=helm /usr/bin/helm3 /usr/bin/helm
 
