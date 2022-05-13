@@ -1,4 +1,4 @@
-name: nodejs12
+name: nodejs16
 
 on:
   push:
@@ -38,7 +38,7 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           pull: true
-          file: ./Dockerfile.nodejs12
-          tags: ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs12:latest
-          cache-from: type=registry,ref=ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs12:latest
+          file: ./Dockerfile.nodejs16
+          tags: ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs16:latest
+          cache-from: type=registry,ref=ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs16:latest
           cache-to: type=inline
