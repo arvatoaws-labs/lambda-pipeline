@@ -1,6 +1,6 @@
 FROM ghcr.io/arvatoaws-labs/helm-pipeline/release:latest as helm
 
-FROM ghcr.io/arvatoaws-labs/fedora:41
+FROM ghcr.io/arvatoaws-labs/fedora:42
 
 VOLUME /var/lib/docker
 
