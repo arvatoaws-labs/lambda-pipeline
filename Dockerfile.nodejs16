@@ -1,9 +1,5 @@
-FROM ghcr.io/arvatoaws-labs/helm-pipeline/release:latest as helm
-
 FROM ghcr.io/arvatoaws-labs/fedora:38
 
 VOLUME /var/lib/docker
-
-COPY --from=helm /usr/bin/helm3 /usr/bin/helm
 
 RUN dnf upgrade -y && dnf module install -y nodejs:16/development && dnf install -y findutils parallel awscli jq make gcc gcc-c++ automake file && dnf clean all

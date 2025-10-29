@@ -1,10 +1,6 @@
-FROM ghcr.io/arvatoaws-labs/helm-pipeline/release:latest as helm
-
-FROM ghcr.io/arvatoaws-labs/fedora:42
+FROM ghcr.io/arvatoaws-labs/fedora:43
 
 VOLUME /var/lib/docker
-
-COPY --from=helm /usr/bin/helm3 /usr/bin/helm
 
 RUN dnf upgrade -y && dnf install -y findutils parallel awscli jq make gcc gcc-c++ automake zip openssl-devel musl-gcc musl-devel musl-clang musl-libc musl-libc-static file libcurl-devel && dnf clean all
 RUN ln -s /usr/bin/musl-gcc /usr/bin/x86_64-linux-musl-gcc
