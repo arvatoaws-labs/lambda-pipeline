@@ -1,12 +1,13 @@
 name: rust
 
 on:
+  workflow_dispatch:
   push:
     branches:
     - main
     - master
   schedule:
-  - cron:  '30 12 * * 3'
+  - cron: '30 12 * * 3'
 
 jobs:
   build:
