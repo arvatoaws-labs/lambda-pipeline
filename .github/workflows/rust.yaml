@@ -28,6 +28,7 @@ jobs:
       with:
         push: true
         pull: true
+        file: ./Dockerfile.rust
         tags: ghcr.io/arvatoaws-labs/lambda-pipeline/rust:latest-arm64
         cache-from: type=registry,ref=ghcr.io/arvatoaws-labs/lambda-pipeline/rust:latest-arm64
         cache-to: type=inline
@@ -49,6 +50,7 @@ jobs:
       with:
         push: true
         pull: true
+        file: ./Dockerfile.rust
         tags: ghcr.io/arvatoaws-labs/lambda-pipeline/rust:latest-amd64
         cache-from: type=registry,ref=ghcr.io/arvatoaws-labs/lambda-pipeline/rust:latest-amd64
         cache-to: type=inline
