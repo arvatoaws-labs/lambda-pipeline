@@ -14,7 +14,7 @@ jobs:
     runs-on: arvato
     steps:
     - name: Checkout
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
       with:
         fetch-depth: 1
     - name: Login to GitHub Packages Docker Registry
@@ -36,7 +36,7 @@ jobs:
     runs-on: arvato-x86
     steps:
     - name: Checkout
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
       with:
         fetch-depth: 1
     - name: Login to GitHub Packages Docker Registry
@@ -59,7 +59,7 @@ jobs:
     needs: [arm64, amd64]
     steps:
     - name: Checkout
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
       with:
         fetch-depth: 1
     - name: Login to GitHub Packages Docker Registry
