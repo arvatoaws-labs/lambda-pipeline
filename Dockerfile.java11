@@ -1,7 +1,0 @@
-FROM ghcr.io/arvatoaws-labs/fedora:43
-
-VOLUME /var/lib/docker
-
-RUN rpm --import https://yum.corretto.aws/corretto.key 
-RUN curl -L -o /etc/yum.repos.d/corretto.repo https://yum.corretto.aws/corretto.repo
-RUN dnf upgrade -y && dnf install -y findutils parallel awscli jq make gcc gcc-c++ automake file java-11-amazon-corretto-devel && dnf clean all

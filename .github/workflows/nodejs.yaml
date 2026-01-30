@@ -1,4 +1,4 @@
-name: nodejs14
+name: nodejs
 
 on:
   workflow_dispatch:
@@ -28,9 +28,9 @@ jobs:
       with:
         push: true
         pull: true
-        file: ./Dockerfile.nodejs14
-        tags: ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs14:latest-arm64
-        cache-from: type=registry,ref=ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs14:latest-arm64
+        file: ./Dockerfile.nodejs
+        tags: ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs:latest-arm64
+        cache-from: type=registry,ref=ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs:latest-arm64
         cache-to: type=inline
   amd64:
     runs-on: arvato-x86
@@ -50,9 +50,9 @@ jobs:
       with:
         push: true
         pull: true
-        file: ./Dockerfile.nodejs14
-        tags: ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs14:latest-amd64
-        cache-from: type=registry,ref=ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs14:latest-amd64
+        file: ./Dockerfile.nodejs
+        tags: ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs:latest-amd64
+        cache-from: type=registry,ref=ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs:latest-amd64
         cache-to: type=inline
   manifest:
     runs-on: arvato
@@ -72,7 +72,7 @@ jobs:
       run: |
         set -x
         echo "Merging manifests"
-        docker manifest create "ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs14:latest" "ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs14:latest-arm64" "ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs14:latest-amd64"
-        docker manifest annotate --arch arm64 "ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs14:latest" "ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs14:latest-arm64"
-        docker manifest annotate --arch amd64 "ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs14:latest" "ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs14:latest-amd64"
-        docker manifest push "ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs14:latest"
+        docker manifest create "ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs:latest" "ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs:latest-arm64" "ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs:latest-amd64"
+        docker manifest annotate --arch arm64 "ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs:latest" "ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs:latest-arm64"
+        docker manifest annotate --arch amd64 "ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs:latest" "ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs:latest-amd64"
+        docker manifest push "ghcr.io/arvatoaws-labs/lambda-pipeline/nodejs:latest"

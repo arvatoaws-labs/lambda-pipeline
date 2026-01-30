@@ -1,5 +1,0 @@
-FROM ghcr.io/arvatoaws-labs/fedora:37
-
-VOLUME /var/lib/docker
-
-RUN dnf upgrade -y && dnf module install -y nodejs:14/development && dnf install -y findutils parallel awscli jq make gcc gcc-c++ automake file && dnf clean all
